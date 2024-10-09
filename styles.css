@@ -43,4 +43,19 @@ footer {
 h2 {
     color: #4169E1; /* Royal blue for section headings */
 }
+.get-started-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4169E1; /* Royal blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s;
+    font-family: 'Times New Roman', Times, serif; /* Use the specified font */
+    margin-top: 20px; /* Add some space above the button */
+}
+
+.get-started-button:hover {
+    background-color: #365b9a; /* Darker blue on hover */
+}
 
