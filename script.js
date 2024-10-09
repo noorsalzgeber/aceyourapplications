@@ -1,32 +1,42 @@
-body {
-    font-family: 'Calibri Light', Calibri, sans-serif; /* Calibri Light font */
-    margin: 0;
-    padding: 0;
-}
+// Handle CV Upload
+document.getElementById('cv-upload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        alert(`Uploaded CV: ${file.name}`);
+    }
+});
 
-header {
-    background-color: #14213d; /* Banner color */
-    color: white;
-    text-align: center;
-    padding: 20px 0; /* Padding for the header */
-}
+// Fetch job details from URL
+document.getElementById('fetch-job-details').addEventListener('click', function() {
+    const jobUrl = document.getElementById('job-url').value;
+    if (jobUrl) {
+        alert(`Fetching job details from: ${jobUrl}`);
+        // Here, you can add the logic to fetch job details using an API or web scraping
+    } else {
+        alert('Please enter a valid job URL.');
+    }
+});
 
-.get-started-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #003366; /* Dark blue */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s;
-    margin-top: 20px; /* Space above the button */
-}
+// Generate CV and Cover Letter bundle
+document.getElementById('generate-bundle').addEventListener('click', function() {
+    alert('Generating CV and Cover Letter based on job details...');
+    // Here, you would include the logic to generate the documents
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = '<p>CV and Cover Letter generated successfully!</p>';
+});
 
-.get-started-button:hover {
-    background-color: #002244; /* Darker blue on hover */
-}
+// Watchlist feature
+document.getElementById('add-watchlist').addEventListener('click', function() {
+    const watchlistUrl = document.getElementById('watchlist-url').value;
+    if (watchlistUrl) {
+        const ul = document.getElementById('watchlist-items');
+        const li = document.createElement('li');
+        li.textContent = watchlistUrl;
+        ul.appendChild(li);
+        document.getElementById('watchlist-url').value = '';
+    } else {
+        alert('Please enter a valid URL.');
+    }
+});
 
-section {
-    padding: 40px; /* Padding for the section */
-    text-align: center; /* Center the text */
 }
