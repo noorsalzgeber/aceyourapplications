@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Job Application Tracker</h1>
+    </header>
+    
+    <main>
+        <section id="upload-cv">
+            <h2>Upload Your CV</h2>
+            <input type="file" id="cv-upload" accept=".pdf,.doc,.docx">
+        </section>
+
+        <section id="job-description">
+            <h2>Enter Job Description Link</h2>
+            <input type="url" id="job-url" placeholder="Enter job URL">
+            <button id="fetch-job-details">Fetch Job Details</button>
+        </section>
+
+        <section id="generated-cv-coverletter">
+            <h2>Generated CV and Cover Letter</h2>
+            <button id="generate-bundle">Generate Bundle (CV + Cover Letter)</button>
+            <div id="result"></div>
+        </section>
+
+        <section id="application-status">
+            <h2>Application Status Tracker</h2>
+            <p>Automatically fetch details and track your job applications.</p>
+        </section>
+
+        <section id="watchlist">
+            <h2>Watchlist</h2>
+            <input type="url" id="watchlist-url" placeholder="Add job URL to watchlist">
+            <button id="add-watchlist">Add to Watchlist</button>
+            <ul id="watchlist-items"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
