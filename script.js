@@ -1,42 +1,24 @@
-// Handle CV Upload
-document.getElementById('cv-upload').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        alert(`Uploaded CV: ${file.name}`);
-    }
-});
+document.getElementById("fetch-job-details-button").addEventListener("click", function() {
+    const jobLink = document.getElementById("job-description-input").value;
 
-// Fetch job details from URL
-document.getElementById('fetch-job-details').addEventListener('click', function() {
-    const jobUrl = document.getElementById('job-url').value;
-    if (jobUrl) {
-        alert(`Fetching job details from: ${jobUrl}`);
-        // Here, you can add the logic to fetch job details using an API or web scraping
-    } else {
-        alert('Please enter a valid job URL.');
-    }
-});
+    // Extract job ID from the link (make sure it points to a valid job)
+    const jobId = jobLink.split('/').pop();
 
-// Generate CV and Cover Letter bundle
-document.getElementById('generate-bundle').addEventListener('click', function() {
-    alert('Generating CV and Cover Letter based on job details...');
-    // Here, you would include the logic to generate the documents
-    const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = '<p>CV and Cover Letter generated successfully!</p>';
+    // Fetch job details from GitHub Jobs API
+    fetch(`https://jobs.github.com/positions/${jobId}.json`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            const jobTitle = data.title;
+            const jobDescription = data.description;
+            document.getElementById("job-details").innerHTML = `<h3>${jobTitle}</h3><p>${jobDescription}</p>`;
+        })
+        .catch(error => {
+            console.error("Error fetching job details:", error);
+            alert("Failed to fetch job details. Please check the link.");
+        });
 });
-
-// Watchlist feature
-document.getElementById('add-watchlist').addEventListener('click', function() {
-    const watchlistUrl = document.getElementById('watchlist-url').value;
-    if (watchlistUrl) {
-        const ul = document.getElementById('watchlist-items');
-        const li = document.createElement('li');
-        li.textContent = watchlistUrl;
-        ul.appendChild(li);
-        document.getElementById('watchlist-url').value = '';
-    } else {
-        alert('Please enter a valid URL.');
-    }
-});
-
-}
