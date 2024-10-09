@@ -58,4 +58,22 @@ h2 {
 .get-started-button:hover {
     background-color: #365b9a; /* Darker blue on hover */
 }
+body {
+    font-family: 'Calibri Light', Calibri, sans-serif; /* Calibri Light font */
+}
+
+.get-started-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #003366; /* Dark blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Space above the button */
+}
+
+.get-started-button:hover {
+    background-color: #002244; /* Darker blue on hover */
+}
 
